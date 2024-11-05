@@ -63,6 +63,18 @@ This is the Blog API, a RESTful API built with Next.js and MongoDB for managing 
 
 ---
 
+## Enviornment Setup
+- **.env**: Store sensitive information like MongoDB URI, JWT secret key, and other environment-specific
+- make a `.env` file inside the application
+- add the below Enviornment Variables in it
+
+  ```
+  MONGODB_URL=mongodb+srv://Piyush:SlcAzhReC1wU0iY4@cluster0.nifprd1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 
+
+  JWT_SECRET=ThisIsMySecret
+  ``` 
+
+
 ## API Endpoints
 
 ### Authentication Endpoints
