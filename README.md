@@ -43,7 +43,7 @@ This is the Blog API, a RESTful API built with Next.js and MongoDB for managing 
 2. Install dependencies:
 
    ```bash
-  npm install --legacy-peer-deps
+    npm install --legacy-peer-deps
    ```
 
 3. Start the server:
