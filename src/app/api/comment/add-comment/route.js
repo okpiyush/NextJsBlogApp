@@ -1,8 +1,8 @@
 import { dbConnection } from "@/lib/db";
-import User from "@/models/user";
 import createNextResponse from "../../util/createNextResponse";
 import Joi from "joi";
 import verifyToken from "../../util/verifyToken";
+import Comment from "@/models/comments";
 import Blog from "@/models/blog";
 
 const addNewComment = Joi.object({
@@ -30,12 +30,13 @@ export async function POST(req) {
         const newComment = {
             comment: comment,
             commentOf: commentOf,
-            belongsTo: verificationObject.id
+            belongsTo: verificationObject.id,
         }
 
         const currComment = Comment.create(newComment);
         return createNextResponse(true, "Comment added successfully");
     }catch(e){
+        console.log(e);
         return createNextResponse(false, "Internal Server Error");
     }
 }

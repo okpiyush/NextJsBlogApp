@@ -3,7 +3,9 @@ import Blog from "@/models/blog";
 import Comment from "@/models/comments";
 export async function exposeRequiredData(data) {
     const userIds = data.map((blog) => blog.belongsTo);
-
+    const commentArray = await Promise.all(
+        data.map(blog => Comment.findByPost(blog._id))
+    );
     const users = await User.find({ _id: { $in: userIds } }).lean(); 
     const userMap = {};
 
@@ -11,21 +13,28 @@ export async function exposeRequiredData(data) {
         userMap[user._id] = user.username; 
     });
 
-    return data.map((blog) => {
+    return data.map((blog,index) => {
         return {
             title: blog.title,
             id: blog._id,
-            commentsLen: blog.comments.length,
+            commentsLen: commentArray[index].length,
             username: userMap[blog.belongsTo] || 'Unknown'
         };
     });
 }
 
 export async function getBlogData(id) {
+    console.log("I was touched");
     const blog = await Blog.findById(id);
     const exposedBlog = await exposeRequiredData([blog]);
     const comments = await Comment.findByPost(blog._id);
-    const user = await User.findById(blog.belongsTo).lean().username;
+    const userIds = comments.map((comment) => comment.belongsTo);
+    const users = await User.find({ _id: { $in: userIds } }).lean(); 
+    const userMap = {};
+
+    users.forEach((user) => {
+        userMap[user._id] = user.username; 
+    });
 
     return {
         blog: exposedBlog[0],
@@ -36,8 +45,10 @@ export async function getBlogData(id) {
             belongsTo: blog.belongsTo,
             comments: comments.map((comment) => {
                 return {
+                    id: comment._id,
                     comment: comment.comment,
-                    user: user
+                    user: userMap[comment.belongsTo] || 'Anonymous',
+                    belongsTo: comment.belongsTo
                 };
             }),
             username: exposedBlog[0].username

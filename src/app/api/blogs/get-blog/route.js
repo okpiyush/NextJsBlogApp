@@ -1,6 +1,6 @@
 import { dbConnection } from "@/lib/db";
 import createNextResponse from "../../util/createNextResponse";
-import { NextResponse } from "next/server";  // Import NextResponse
+import { NextResponse } from "next/server";
 import Blog from "@/models/blog";
 import mongoose from "mongoose";
 import { getBlogData } from "../helper/helper";

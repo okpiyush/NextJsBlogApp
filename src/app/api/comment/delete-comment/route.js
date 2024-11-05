@@ -2,6 +2,7 @@ import { dbConnection } from "@/lib/db";
 import createNextResponse from "../../util/createNextResponse";
 import verifyToken from "../../util/verifyToken";
 import Blog from "@/models/blog";
+import Comment from "@/models/comments";
 
 export async function DELETE(req) {
     try{
@@ -13,15 +14,19 @@ export async function DELETE(req) {
         if (!verificationObject.isValid){
             return createNextResponse(false, "Deletion Failed, Token authentication failed");
         } 
+        console.log(id);
+        console.log(verificationObject);
+        const comment = await Comment.findById(id);
+        console.log(comment);
 
-        const blog = await Blog.findById(id);
-
-        if(!blog){
-            return createNextResponse(false, "Deletion Failed, Blog not found");
+        if(!comment){
+            return createNextResponse(false, "Deletion Failed, Comment not found");
         }
 
-        if ((verificationObject.role === "user" && verificationObject.id == blog.belongsTo) || verificationObject.role === "admin"){
-            blog.updateOne({isDeleted: true});
+        if ((verificationObject.role === "user" && verificationObject.id == comment.belongsTo) || verificationObject.role === "admin"){
+            var updatedComment = comment;
+            updatedComment.softDelete=true;
+            await updatedComment.save();
             return createNextResponse(true, "Blog deleted successfully");
         }
         
