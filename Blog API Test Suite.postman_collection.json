@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "37aa6406-9929-424c-ad10-a72bf8620215",
+		"name": "Blog API Test Suite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20871330"
+	},
+	"item": [
+		{
+			"name": "Login 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Piyush\",\r\n    \"password\": \"PiyushIsGreat\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Login 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"PiyushTest1\",\r\n    \"password\":\"Piyush\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"PiyushTest1\",\r\n    \"password\":\"Piyush\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/registration"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Blogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/blogs/get-blogs"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Blogs Copy",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Blog",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Blog",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"6728be19588efc769bc98e31\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBpeXVzaCIsImlkIjoiNjcyOGE2OTg2MzhhYjExMGFjYmVkYmVhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzMwNzg0MzM3LCJleHAiOjE3MzA3ODc5Mzd9.H9_tiMthJgYeUnqZygk9es9jCMrwKQnSSG07jcndqcg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/blogs/delete-blog"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"6728be19588efc769bc98e31\",\r\n    \"title\":\"Updated Title\",\r\n    \"content\": \"Updated Content\",\r\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBpeXVzaCIsImlkIjoiNjcyOGE2OTg2MzhhYjExMGFjYmVkYmVhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzMwNzM1MjA4LCJleHAiOjE3MzA3Mzg4MDh9.8d50zgXAXF_iUyJuDEVw5WRpDEPuL0v7yrWJKPFpGR0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/blogs/update-blog"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Blog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"This is my first blog\",\r\n    \"content\": \"This is the content to my blog\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBpeXVzaCIsImlkIjoiNjcyOGE2OTg2MzhhYjExMGFjYmVkYmVhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzMwNzg0MzM3LCJleHAiOjE3MzA3ODc5Mzd9.H9_tiMthJgYeUnqZygk9es9jCMrwKQnSSG07jcndqcg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/blogs/add-blogs"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comment\":\"This is such a good read\",\r\n    \"commentOf\":\"6729b35d7f8b8996884eb33e\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBpeXVzaFRlc3QxIiwiaWQiOiI2NzI4Y2UzZTZkY2NkNGZkZmNmYTBjMTQiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMDc5MzI2OCwiZXhwIjoxNzMwNzk2ODY4fQ.1nSt9q_XhLQz5EQ70WpHVgB3vSBG5DKX9wp4UnrC7i0\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/comment/add-comment"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Comment Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"6729cc96b6bf6527c24e4583\",\r\n    \"comment\": \"Updated the fucking content\",\r\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBpeXVzaCIsImlkIjoiNjcyOGE2OTg2MzhhYjExMGFjYmVkYmVhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzMwODAyMTc3LCJleHAiOjE3MzA4MDU3Nzd9.sli5ktEGUNQxdWB-riHA6ytrgAF_7GLcRHBojXDkkS4\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/comment/update-comment"
+			},
+			"response": []
+		}
+	]
+}
