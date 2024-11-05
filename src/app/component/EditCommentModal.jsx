@@ -12,14 +12,14 @@ const EditCommentModal = ({ isOpen, onClose, commentData, onSave }) => {
   const handleSave = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/comments/update-comment', {
+      const response = await fetch('/api/comment/update-comment', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           id: commentData.id,
-          content,
+          comment: content,
           token: localStorage.getItem('token'),
         }),
       });
