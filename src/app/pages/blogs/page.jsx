@@ -8,6 +8,7 @@ const Blogs = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
+                setBlogs("Loading")
                 const response = await fetch("/api/blogs/get-blogs");
                 const data = await response.json();
                 setBlogs(data.blogs);
@@ -21,7 +22,8 @@ const Blogs = () => {
 
     return (
         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }} className="flex-wrap p-2">
-            {blogs.length === 0 ? (
+            {blogs === "Loading"? 
+                <div className="text-center text-2xl font-bold text-white">Loading...</div> : blogs.length === 0 ? (
                 <div className="text-center text-2xl font-bold text-white">No blogs found</div>
             ) : (
                 blogs.map((blog) => (
