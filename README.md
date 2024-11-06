@@ -1,5 +1,5 @@
 # Blog API 
-<a href = "https://next-js-blog-app-nine.vercel.app/"><h2>Live Preview</h2></a>
+<a href = "https://next-js-blog-app-nine.vercel.app/">Live Preview</a>
 
 ```markdown
 This is the Blog API, a RESTful API built with Next.js and MongoDB for managing user authentication, blog posts, and comments. The API includes role-based access control, JWT-based authentication, and an intuitive CRUD interface for blogs and comments.
