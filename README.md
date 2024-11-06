@@ -1,4 +1,5 @@
-# Blog API
+# Blog API 
+<a href = "https://next-js-blog-app-nine.vercel.app/"><h2>Live Preview</h2></a>
 
 ```markdown
 This is the Blog API, a RESTful API built with Next.js and MongoDB for managing user authentication, blog posts, and comments. The API includes role-based access control, JWT-based authentication, and an intuitive CRUD interface for blogs and comments.
@@ -30,8 +31,20 @@ This is the Blog API, a RESTful API built with Next.js and MongoDB for managing 
 
 ```
 
-## Installation
+## Docker
 
+
+1. Step 1 
+  ```bash
+    docker build -t nextjsblogapp .
+  ```
+
+2. Step 2 (If you face a Problem in this step , Please use a different port id (3001:3001 or 4001:4001))
+  ```bash
+    docker run -p 3000:3000 nextjsblogapp
+  ```
+
+## Installation
 
 
 1. Clone the repository:
@@ -46,12 +59,15 @@ This is the Blog API, a RESTful API built with Next.js and MongoDB for managing 
     npm install --legacy-peer-deps
    ```
 
-3. Start the server:
+3. Make the build for the file:
 
    ```bash
-   npm run dev
+    npm run build
    ```
-
+4. Start the server 
+    ```bash
+      npm start -- -p 3000
+    ````
 ---
 
 
